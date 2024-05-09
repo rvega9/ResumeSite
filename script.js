@@ -1,25 +1,34 @@
-// index.js
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector('.header');
+    const info = document.querySelector('.info');
+
+    header.addEventListener('click', function () {
+        const margin = 25; // Adjust the margin value as needed
+        const infoOffset = info.offsetTop - margin;
+        window.scrollTo({ top: infoOffset, behavior: 'smooth' });
+    });
+});
 
 // Fetch data from server
-fetch('/resumeData')
+fetch('https://resume-as4h.onrender.com/resumeData')
   .then(response => response.json())
   .then(data => {
     // Update personal information section
-    document.querySelector('.name').innerHTML = `${data.personalInfo.firstName} ${data.personalInfo.lastName}`;
-    document.querySelector('.d_p').innerHTML = data.personalInfo.jobTitle;
-    document.querySelector('.about_p').innerHTML = data.personalInfo.aboutMe;
-    document.querySelector('.p_h:nth-of-type(1)').innerHTML = `<i class="bx bx-phone-call"></i> ${data.personalInfo.contactNo}`;
-    document.querySelector('.p_h:nth-of-type(2)').innerHTML = `<i class="bx bx-globe"></i> ${data.personalInfo.website}`;
-    document.querySelector('.p_h:nth-of-type(3)').innerHTML = `<i class="bx bx-current-location"></i> ${data.personalInfo.location}`;
+    document.getElementById('.name').innerHTML = `${data.personalInfo.firstName} ${data.personalInfo.lastName}`;
+    document.getElementById('.d_p').innerHTML = data.personalInfo.jobTitle;
+    document.getElementById('.about_p').innerHTML = data.personalInfo.aboutMe;
+    document.getElementById('.p_h:nth-of-type(1)').innerHTML = `<i class="bx bx-phone-call"></i> ${data.personalInfo.contactNo}`;
+    document.getElementById('.p_h:nth-of-type(2)').innerHTML = `<i class="bx bx-globe"></i> ${data.personalInfo.website}`;
+    document.getElementById('.p_h:nth-of-type(3)').innerHTML = `<i class="bx bx-current-location"></i> ${data.personalInfo.location}`;
 
     // Additional personal information
-    document.querySelector('.p_h:nth-of-type(4)').innerHTML = `Age: ${data.personalInfo.age}`;
-    document.querySelector('.p_h:nth-of-type(5)').innerHTML = `Birth Date: ${data.personalInfo.birthDate}`;
-    document.querySelector('.p_h:nth-of-type(6)').innerHTML = `Address: ${data.personalInfo.address}`;
-    document.querySelector('.p_h:nth-of-type(7)').innerHTML = `Email: ${data.personalInfo.email}`;
+    document.getElementById('.p_h:nth-of-type(4)').innerHTML = `Age: ${data.personalInfo.age}`;
+    document.getElementById('.p_h:nth-of-type(5)').innerHTML = `Birth Date: ${data.personalInfo.birthDate}`;
+    document.getElementById('.p_h:nth-of-type(6)').innerHTML = `Address: ${data.personalInfo.address}`;
+    document.getElementById('.p_h:nth-of-type(7)').innerHTML = `Email: ${data.personalInfo.email}`;
 
     // Update languages section
-    document.querySelectorAll('.l_p').forEach((element, index) => {
+    document.getElementById('.l_p').forEach((element, index) => {
       element.innerHTML = `${data.languages[index].language}
                             <span class="circle1"></span>
                             <span class="circle2"></span>
@@ -29,7 +38,7 @@ fetch('/resumeData')
     });
 
     // Update education section
-    const educationContent = document.querySelector('.content-inner:nth-of-type(1)');
+    const educationContent = document.getElementById('.content-inner:nth-of-type(1)');
     educationContent.innerHTML = ''; // Clear existing content
     data.education.forEach(education => {
       const educationItem = document.createElement('div');
@@ -39,7 +48,7 @@ fetch('/resumeData')
     });
 
     // Update experience section
-    const experienceContent = document.querySelector('.content-inner:nth-of-type(2)');
+    const experienceContent = document.getElementById('.content-inner:nth-of-type(2)');
     experienceContent.innerHTML = ''; // Clear existing content
     data.workExperience.forEach(experience => {
       const experienceItem = document.createElement('div');
@@ -49,7 +58,7 @@ fetch('/resumeData')
     });
 
     // Update skills section
-    const skillsContent = document.querySelector('.content-inner:nth-of-type(3)');
+    const skillsContent = document.getElementById('.content-inner:nth-of-type(3)');
     skillsContent.innerHTML = ''; // Clear existing content
     data.skills.forEach(skill => {
       const skillItem = document.createElement('div');
