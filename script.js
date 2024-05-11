@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Fetch data from server
-fetch('https://resume-as4h.onrender.com/resumeData')
+fetch('https://resume-as4h.onrender.com')
   .then(response => response.json())
   .then(data => {
     // Update personal information
