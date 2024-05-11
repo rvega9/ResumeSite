@@ -1,72 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector('.header');
-    const info = document.querySelector('.info');
-
-    header.addEventListener('click', function () {
-        const margin = 25; // Adjust the margin value as needed
-        const infoOffset = info.offsetTop - margin;
-        window.scrollTo({ top: infoOffset, behavior: 'smooth' });
-    });
+    
 });
 
 // Fetch data from server
 fetch('https://resume-as4h.onrender.com/resumeData')
   .then(response => response.json())
   .then(data => {
-    // Update personal information section
-    document.getElementById('.name').innerHTML = `${data.personalInfo.firstName} ${data.personalInfo.lastName}`;
-    document.getElementById('.d_p').innerHTML = data.personalInfo.jobTitle;
-    document.getElementById('.about_p').innerHTML = data.personalInfo.aboutMe;
-    document.getElementById('.p_h:nth-of-type(1)').innerHTML = `<i class="bx bx-phone-call"></i> ${data.personalInfo.contactNo}`;
-    document.getElementById('.p_h:nth-of-type(2)').innerHTML = `<i class="bx bx-globe"></i> ${data.personalInfo.website}`;
-    document.getElementById('.p_h:nth-of-type(3)').innerHTML = `<i class="bx bx-current-location"></i> ${data.personalInfo.location}`;
+    // Update personal information
+    document.getElementById('name').innerHTML = `${data.personalInfo.firstName} ${data.personalInfo.lastName}`;
+    document.getElementById('jobTitle').innerHTML = data.personalInfo.jobTitle;
+    document.getElementById('aboutMe').innerHTML = data.personalInfo.aboutMe;
+    
+    // Update left section info
+    document.getElementById('age').innerHTML = data.leftInfo.age;
+    document.getElementById('birthdate').innerHTML = data.leftInfo.birthDate;
+    document.getElementById('address').innerHTML = data.leftInfo.address;
+    document.getElementById('email').innerHTML = data.leftInfo.email;
+    document.getElementById('status').innerHTML = data.leftInfo.status;
+    document.getElementById('religion').innerHTML = data.leftInfo.religion;
 
-    // Additional personal information
-    document.getElementById('.p_h:nth-of-type(4)').innerHTML = `Age: ${data.personalInfo.age}`;
-    document.getElementById('.p_h:nth-of-type(5)').innerHTML = `Birth Date: ${data.personalInfo.birthDate}`;
-    document.getElementById('.p_h:nth-of-type(6)').innerHTML = `Address: ${data.personalInfo.address}`;
-    document.getElementById('.p_h:nth-of-type(7)').innerHTML = `Email: ${data.personalInfo.email}`;
-
-    // Update languages section
-    document.getElementById('.l_p').forEach((element, index) => {
-      element.innerHTML = `${data.languages[index].language}
-                            <span class="circle1"></span>
-                            <span class="circle2"></span>
-                            <span class="circle3"></span>
-                            <span class="circle4"></span>
-                            <span class="circle5"></span>`;
+    // Update languages
+    const languagesList = document.getElementById('languages');
+    data.languages.forEach(language => {
+      const listItem = document.createElement('li');
+      listItem.textContent = language.language;
+      languagesList.appendChild(listItem);
     });
 
-    // Update education section
-    const educationContent = document.getElementById('.content-inner:nth-of-type(1)');
-    educationContent.innerHTML = ''; // Clear existing content
-    data.education.forEach(education => {
-      const educationItem = document.createElement('div');
-      educationItem.innerHTML = `<h4>${education.school}</h4>
-                                 <p class="para">${education.year}</p><br/>`;
-      educationContent.appendChild(educationItem);
-    });
-
-    // Update experience section
-    const experienceContent = document.getElementById('.content-inner:nth-of-type(2)');
-    experienceContent.innerHTML = ''; // Clear existing content
-    data.workExperience.forEach(experience => {
-      const experienceItem = document.createElement('div');
-      experienceItem.innerHTML = `<h4>${experience.companyName}</h4>
-                                   <p class="para">${experience.details}</p><br/>`;
-      experienceContent.appendChild(experienceItem);
-    });
-
-    // Update skills section
-    const skillsContent = document.getElementById('.content-inner:nth-of-type(3)');
-    skillsContent.innerHTML = ''; // Clear existing content
+    // Update skills
+    const skillsList = document.getElementById('skills');
     data.skills.forEach(skill => {
-      const skillItem = document.createElement('div');
-      skillItem.innerHTML = `<div class="box">
-                                <img src="${skill.image}"/>
-                                <p>${skill.description}</p>
-                              </div>`;
-      skillsContent.appendChild(skillItem);
+      const listItem = document.createElement('li');
+      listItem.textContent = `${skill.description} - ${skill.expertiseLevel}`;
+      skillsList.appendChild(listItem);
+    });
+
+    // Update work experience
+    const workExperienceList = document.getElementById('workExperience');
+    data.workExperience.forEach(exp => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${exp.companyName} - ${exp.details} (${exp.year})`;
+      workExperienceList.appendChild(listItem);
+    });
+
+    // Update education
+    const educationList = document.getElementById('education');
+    data.education.forEach(edu => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${edu.school} - ${edu.year}`;
+      educationList.appendChild(listItem);
     });
   })
   .catch(error => console.error('Error fetching data:', error));
