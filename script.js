@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch('https://resume-as4h.onrender.com')
+  fetch('https://resume-as4h.onrender.com/resumeData')
     .then(response => response.json())
     .then(data => {
       // Update personal information
