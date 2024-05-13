@@ -121,11 +121,11 @@ h3::after{
 .content-inner {
     padding: 20px;
 }
-h2 {font-weight: 500;}
+h4 {font-weight: 500;}
 .para{
     font-size: 13px;
     letter-spacing: 0.5px;
-    line-height: 20px;
+    line-height: 50px;
     margin-top: 10px;
 }
 .box{width: 50%; float: left;}
