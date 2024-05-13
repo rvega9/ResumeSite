@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.education.forEach(edu => {
         const eduDiv = document.createElement('div');
         eduDiv.innerHTML = `
-            <p>${edu.school}</p>
+            <h4>${edu.school}</4>
             <p>${edu.year}</p>
         `;
         educationContainer.appendChild(eduDiv);
