@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const eduDiv = document.createElement('div');
           eduDiv.classList.add('para'); // Add the "para" class
           eduDiv.innerHTML = `
-              <h4>${edu.school}</h4>
+              <h3>${edu.school}</h3>
               <p>${edu.year}</p>
           `;
           educationContainer.appendChild(eduDiv);
@@ -43,23 +43,23 @@ document.addEventListener("DOMContentLoaded", function () {
             const workDiv = document.createElement('div');
             workDiv.classList.add('para'); // Add the "para" class
             workDiv.innerHTML = `
-                <h4>${work.companyName}</h4>
+                <h3>${work.companyName}</h3>
                 <p>${work.details} | ${work.year}</p>
             `;
             workExperienceList.appendChild(workDiv);
         });
 
       // Display education
-    const skillsList = document.getElementById('skills');
-    data.skills.forEach(skill => {
-        const skillssDiv = document.createElement('div');
-        skillssDiv.classList.add('para'); // Add the "para" class
-        skillssDiv.innerHTML = `
-            <h4>${skill.description}</h4>
-            <p>${skill.expertiseLevel}</p>
-        `;
-        skillsList.appendChild(skillssDiv);
-    });
+      const skillsList = document.getElementById('skills');
+      data.skills.forEach(skill => {
+          const skillssDiv = document.createElement('div');
+          skillssDiv.classList.add('para'); // Add the "para" class
+          skillssDiv.innerHTML = `
+              <h3>${skill.description}</h3>
+              <p>${skill.expertiseLevel}</p>
+          `;
+          skillsList.appendChild(skillssDiv);
+      });
 
     })
     .catch(error => console.error('Error fetching data:', error));
