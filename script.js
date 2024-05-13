@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const eduDiv = document.createElement('div');
           eduDiv.classList.add('para'); // Add the "para" class
           eduDiv.innerHTML = `
-              <p>${edu.school}</p>
+              <h4>${edu.school}<h4>
               <p>${edu.year}</p>
           `;
           educationContainer.appendChild(eduDiv);
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const workDiv = document.createElement('div');
             workDiv.classList.add('para'); // Add the "para" class
             workDiv.innerHTML = `
-                <p>${work.companyName}</p>
+                <h4>${work.companyName}</h4>
                 <p>${work.details} | ${work.year}</p>
             `;
             workExperienceList.appendChild(workDiv);
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const skillssDiv = document.createElement('div');
           skillssDiv.classList.add('para'); // Add the "para" class
           skillssDiv.innerHTML = `
-              <p>${skill.description}</p>
+              <h4>${skill.description}</h4>
               <p>${skill.expertiseLevel}</p>
           `;
           skillsList.appendChild(skillssDiv);
