@@ -24,15 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('status').textContent = "Status: " + data.leftInfo.status;
       document.getElementById('religion').textContent = "Religion: " + data.leftInfo.religion;
 
-      // Update education
-      const educationList = document.getElementById('education');
-      educationList.textContent = ''; // Clear existing content
-      data.education.forEach((edu, index) => {
-        if (index !== 0) {
-          educationList.textContent += '\n'; // Add new line between entries
-        }
-        educationList.textContent += `${edu.school} - ${edu.year}`;
-      });
+
+       // Display education
+    const educationContainer = document.getElementById('education');
+    data.education.forEach(edu => {
+        const eduDiv = document.createElement('div');
+        eduDiv.innerHTML = `
+            <h2>${edu.school}</h2>
+            <p>${edu.year}</p>
+        `;
+        educationContainer.appendChild(eduDiv);
+    });
 
       // Update work experience
       const workExperienceList = document.getElementById('workExperience');
