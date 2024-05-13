@@ -37,25 +37,29 @@ document.addEventListener("DOMContentLoaded", function () {
           educationContainer.appendChild(eduDiv);
       });
 
-      // Update work experience
-      const workExperienceList = document.getElementById('workExperience');
-      workExperienceList.textContent = ''; // Clear existing content
-      data.workExperience.forEach((exp, index) => {
-        if (index !== 0) {
-          workExperienceList.textContent += '\n'; // Add new line between entries
-        }
-        workExperienceList.textContent += `${exp.companyName} - ${exp.details} (${exp.year})`;
-      });
+      // Display work experience
+        const workExperienceList = document.getElementById('workExperience');
+        data.workExperience.forEach(work => {
+            const workDiv = document.createElement('div');
+            workDiv.classList.add('para'); // Add the "para" class
+            workDiv.innerHTML = `
+                <h4>${work.companyName}</h4>
+                <p>${work.details} | ${work.year}</p>
+            `;
+            workExperienceList.appendChild(workDiv);
+        });
 
-      // Update skills
-      const skillsList = document.getElementById('skills');
-      skillsList.textContent = ''; // Clear existing content
-      data.skills.forEach((skill, index) => {
-        if (index !== 0) {
-          skillsList.textContent += '\n'; // Add new line between entries
-        }
-        skillsList.textContent += `${skill.description} - ${skill.expertiseLevel}`;
-      });
+      // Display education
+    const skillsList = document.getElementById('skills');
+    data.skills.forEach(skill => {
+        const skillssDiv = document.createElement('div');
+        skillssDiv.classList.add('para'); // Add the "para" class
+        skillssDiv.innerHTML = `
+            <h4>${skill.description}</h4>
+            <p>${skill.expertiseLevel}</p>
+        `;
+        skillsList.appendChild(skillssDiv);
+    });
 
     })
     .catch(error => console.error('Error fetching data:', error));
