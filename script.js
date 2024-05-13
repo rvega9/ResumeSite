@@ -25,16 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('religion').textContent = "Religion: " + data.leftInfo.religion;
 
 
-       // Display education
-    const educationContainer = document.getElementById('education');
-    data.education.forEach(edu => {
-        const eduDiv = document.createElement('div');
-        eduDiv.innerHTML = `
-            <h4>${edu.school}</h4>
-            <p>${edu.year}</p>
-        `;
-        educationContainer.appendChild(eduDiv);
-    });
+      // Display education
+      const educationContainer = document.getElementById('education');
+      data.education.forEach(edu => {
+          const eduDiv = document.createElement('div');
+          eduDiv.classList.add('para'); // Add the "para" class
+          eduDiv.innerHTML = `
+              <h4>${edu.school}</h4>
+              <p>${edu.year}</p>
+          `;
+          educationContainer.appendChild(eduDiv);
+      });
 
       // Update work experience
       const workExperienceList = document.getElementById('workExperience');
