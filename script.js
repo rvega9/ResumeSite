@@ -26,27 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Update education
       const educationList = document.getElementById('education');
-      data.education.forEach(edu => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${edu.school} - ${edu.year}`;
-        educationList.appendChild(listItem);
+      educationList.textContent = ''; // Clear existing content
+      data.education.forEach((edu, index) => {
+        if (index !== 0) {
+          educationList.textContent += '\n'; // Add new line between entries
+        }
+        educationList.textContent += `${edu.school} - ${edu.year}`;
       });
 
       // Update work experience
       const workExperienceList = document.getElementById('workExperience');
-      data.workExperience.forEach(exp => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${exp.companyName} - ${exp.details} (${exp.year})`;
-        workExperienceList.appendChild(listItem);
+      workExperienceList.textContent = ''; // Clear existing content
+      data.workExperience.forEach((exp, index) => {
+        if (index !== 0) {
+          workExperienceList.textContent += '\n'; // Add new line between entries
+        }
+        workExperienceList.textContent += `${exp.companyName} - ${exp.details} (${exp.year})`;
       });
 
       // Update skills
       const skillsList = document.getElementById('skills');
-      data.skills.forEach(skill => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${skill.description} - ${skill.expertiseLevel}`;
-        skillsList.appendChild(listItem);
+      skillsList.textContent = ''; // Clear existing content
+      data.skills.forEach((skill, index) => {
+        if (index !== 0) {
+          skillsList.textContent += '\n'; // Add new line between entries
+        }
+        skillsList.textContent += `${skill.description} - ${skill.expertiseLevel}`;
       });
+
     })
     .catch(error => console.error('Error fetching data:', error));
 });
