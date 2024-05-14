@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         languagesList.appendChild(listItem);*/
         /*const item = document.querySelector("#languages .l_p:nth-type(${index + 1})");
         item.textContent = language.language;*/
-        const langItem = languagesList.querySelector(`.l_p:nth-of-type(${index+1}) .language`);
+        const langItem = languagesList.querySelector(`.l_p:nth-of-type(`+(index+1)+`) .language`);
         langItem.textContent = language.language;
       });
 
