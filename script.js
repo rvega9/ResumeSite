@@ -9,19 +9,17 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('location').textContent = data.personalInfo.location;
       
       // Update languages
-      const languagesContainer = document.getElementById('languages');
-data.languages.forEach((language, index) => {
-    const listItem = languagesContainer.querySelector(`.l_p:nth-of-type(${index + 1})`);
-    const spanItem = document.createElement('span');
-    spanItem.textContent = language.language;
-    listItem.insertBefore(spanItem, listItem.firstChild); // Insert language before the first span
-    // Clone and insert the existing spans
-    const existingSpans = listItem.querySelectorAll('.circle1, .circle2, .circle3, .circle4, .circle5');
-    existingSpans.forEach(existingSpan => {
-        const clonedSpan = existingSpan.cloneNode(true);
-        listItem.insertBefore(clonedSpan, spanItem.nextSibling);
-    });
-});
+      const languagesList = document.getElementById('languages');
+      data.languages.forEach((language, index) => {
+        /*const listItem = document.createElement('li');
+        listItem.textContent = language.language;
+        languagesList.appendChild(listItem);*/
+        /*const item = document.querySelector("#languages .l_p:nth-type(${index + 1})");
+        item.textContent = language.language;*/
+        const langItem = languagesList.querySelector(`.language:nth-of-type(${index+1})`);
+        langItem.textContent = language.language;
+      });
+
       // Update personal info
       document.getElementById('age').textContent = "Age: " + data.leftInfo.age;
       document.getElementById('birthdate').textContent = "Birthdate: " + data.leftInfo.birthDate;
