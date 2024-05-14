@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         item.textContent = language.language;*/
         console.log("Index: "+index)
         const langItem = languagesList.querySelectorAll('.l_p')[index];
-        console.log(langItem.length);
-        langItem.querySelector('.language')[0].textContent = language.language;
+        langItem.querySelector('.language').textContent = language.language;
       });
 
       // Update personal info
