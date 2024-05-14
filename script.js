@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         item.textContent = language.language;*/
         const spanItem = document.createElement('span');
           spanItem.textContent = language.language;
-          const listItem = languagesContainer.querySelector(`.l_p:nth-of-type(${index + 1})`);
+          const listItem = languagesList.querySelector(`.l_p:nth-of-type(${index + 1})`);
           listItem.insertBefore(spanItem, listItem.firstChild.nextSibling);
       });
 
