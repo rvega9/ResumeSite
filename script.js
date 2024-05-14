@@ -16,8 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
         languagesList.appendChild(listItem);*/
         /*const item = document.querySelector("#languages .l_p:nth-type(${index + 1})");
         item.textContent = language.language;*/
-        const spanItem = document.querySelector(`#languages .l_p:nth-of-type(1)`);
-        spanItem.insertAdjacentHTML("beforebegin", language.language);
+        const spanItem = document.createElement('span');
+          spanItem.textContent = language.language;
+          const listItem = languagesContainer.querySelector(`.l_p:nth-of-type(${index + 1})`);
+          listItem.insertBefore(spanItem, listItem.firstChild.nextSibling);
       });
 
       // Update personal info
