@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             languageDiv.innerHTML = `
                 <p>${language.language}<p>
             `;
-            languageslist.appendChild(eduDiv);
+            languageslist.appendChild(languageDiv);
         });
   
 
