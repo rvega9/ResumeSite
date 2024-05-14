@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
         languagesList.appendChild(listItem);*/
         /*const item = document.querySelector("#languages .l_p:nth-type(${index + 1})");
         item.textContent = language.language;*/
-        const langItem = languagesList.querySelector(`.l_p:nth-child(`+(index+1)+`) .language`);
-        langItem.textContent = language.language;
+        const langItem = languagesList.querySelectorAll(`.l_p`)[index];
+        langItem.querySelector(".language").textContent = language.language;
       });
 
       // Update personal info
