@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
         languagesList.appendChild(listItem);*/
         /*const item = document.querySelector("#languages .l_p:nth-type(${index + 1})");
         item.textContent = language.language;*/
+        console.log("Index: "+index)
         const langItem = languagesList.querySelectorAll('.l_p')[index];
+        console.log(langItem.length);
         langItem.querySelector('.language')[0].textContent = language.language;
       });
 
