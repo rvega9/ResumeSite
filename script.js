@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         languagesList.appendChild(listItem);*/
         /*const item = document.querySelector("#languages .l_p:nth-type(${index + 1})");
         item.textContent = language.language;*/
-        const spanItem = document.querySelector(`#languages .l_p:nth-of-type(${index + 1})`);
+        const spanItem = document.querySelector(`#languages .l_p:nth-of-type(1)`);
         spanItem.insertAdjacentHTML("beforebegin", language.language);
       });
 
