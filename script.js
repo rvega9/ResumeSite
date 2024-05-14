@@ -10,15 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
       
       // Update languages
       const languagesList = document.getElementById('languages');
-      data.languages.forEach((language, index) => {
-        /*const listItem = document.createElement('li');
+      data.languages.forEach(language => {
+        const listItem = document.createElement('li');
         listItem.textContent = language.language;
-        languagesList.appendChild(listItem);*/
-        /*const item = document.querySelector("#languages .l_p:nth-type(${index + 1})");
-        item.textContent = language.language;*/
-        console.log("Index: "+index)
-        const langItem = languagesList.querySelectorAll('.l_p')[index];
-        langItem.querySelector('.language').textContent = language.language;
+        languagesList.appendChild(listItem);
       });
 
       // Update personal info
