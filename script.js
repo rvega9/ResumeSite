@@ -8,13 +8,18 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('website').textContent = data.personalInfo.website;
       document.getElementById('location').textContent = data.personalInfo.location;
       
-      // Update languages
-      const languagesList = document.getElementById('languages');
-      data.languages.forEach(language => {
-        const listItem = document.createElement('li');
-        listItem.textContent = language.language;
-        languagesList.appendChild(listItem);
-      });
+
+        // Display language
+        const languageslist = document.getElementById('languages');
+        data.languages.forEach(language => {
+            const languageDiv = document.createElement('div');
+            languageDiv.classList.add('l_p'); // Add the "l_p" class
+            languageDiv.innerHTML = `
+                <p>${language.language}<p>
+            `;
+            languageslist.appendChild(eduDiv);
+        });
+  
 
       // Update personal info
       document.getElementById('age').textContent = "Age: " + data.leftInfo.age;
@@ -49,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             workExperienceList.appendChild(workDiv);
         });
 
-      // Display education
+      // Display skills
       const skillsList = document.getElementById('skills');
       data.skills.forEach(skill => {
           const skillssDiv = document.createElement('div');
